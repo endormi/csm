@@ -1,0 +1,21 @@
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+# This will work in 2.5
+Gemspec/RequiredRubyVersion:
+  Enabled: false
+
+Style/ColonMethodCall:
+  Enabled: false
+
+Layout/LineLength:
+  Enabled: false
+
+Metrics/MethodLength:
+  Enabled: false
+
+Metrics/BlockLength:
+  Enabled: false
+
+Lint/UselessAssignment:
+  Enabled: false
