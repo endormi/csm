@@ -14,12 +14,13 @@ jobs:
       matrix:
         ruby-version: ['2.7', '3.0']
 
+    defaults:
+      run:
+        working-directory: csmrb
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
-
-      - name: Change to csmrb directory
-        run: cd csmrb
   
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
