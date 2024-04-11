@@ -52,7 +52,9 @@ jobs:
           ruby-version: '2.7'
 
       - name: List Dir Contents
-        run: ls -l
+        run: |
+          echo $PWD
+          ls -l
       - name: Publish to GPR
         run: |
           mkdir -p $HOME/.gem
