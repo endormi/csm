@@ -55,14 +55,22 @@ jobs:
         run: |
           echo $PWD
           ls -l
+
+      - name: Change dir and list Dir contents
+        working-directory: ${{ github.workspace }}
+        run: |
+          cd ${{ github.workspace }}
+          echo $PWD
+          ls -l
+  
       - name: Publish to GPR
+        working-directory: ${{ github.workspace }}
         run: |
           mkdir -p $HOME/.gem
           touch $HOME/.gem/credentials
           chmod 0600 $HOME/.gem/credentials
           printf -- "---\n:github: ${GEM_HOST_API_KEY}\n" > $HOME/.gem/credentials
-          ls -l
-          cat csm.gemspec
+          cd ${{ github.workspace }}
           gem build csm.gemspec
           # gem push --KEY github --host https://rubygems.pkg.github.com/${OWNER} *.gem
         env:
@@ -70,13 +78,13 @@ jobs:
           OWNER: ${{ github.repository_owner }}
 
       - name: Publish to RubyGems
+        working-directory: ${{ github.workspace }}
         run: |
           mkdir -p $HOME/.gem
           touch $HOME/.gem/credentials
           chmod 0600 $HOME/.gem/credentials
           printf -- "---\n:rubygems_api_key: ${GEM_HOST_API_KEY}\n" > $HOME/.gem/credentials
-          ls -l
-          cat csm.gemspec
+          cd ${{ github.workspace }}
           gem build csm.gemspec
           # gem push *.gem
         env:
