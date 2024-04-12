@@ -1,0 +1,19 @@
+[flake8]
+ignore:
+	E402,
+	E501,
+	E701,
+	F401,
+  F811,
+	F841
+exclude =
+	.git
+	venv
+	.venv
+	env
+	.env
+	*.pyc
+	__pycache__
+  *.egg-info
+  build
+  .pytest_cache

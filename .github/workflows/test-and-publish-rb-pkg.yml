@@ -1,0 +1,77 @@
+name: Tests and Publish Ruby
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        ruby-version: ['2.7', '3.0']
+
+    defaults:
+      run:
+        working-directory: csmrb
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+  
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: ${{ matrix.ruby-version }}
+
+      - name: Install Rake
+        run: gem install rake
+
+      - name: Install RSpec
+        run: gem install rspec
+
+      - name: Install RuboCop
+        run: gem install rubocop
+
+      - name: Run RSpec
+        run: rake
+
+      - name: Run RuboCop
+        run: rake rubocop
+
+#  publish:
+#    needs: test
+#    if: github.ref == 'refs/heads/main' && github.event_name == 'push' && success()
+#    runs-on: ubuntu-latest
+
+#    steps:
+#      - name: Set up Ruby for publishing
+#        uses: ruby/setup-ruby@v1
+#        with:
+#          ruby-version: '2.7'
+
+#      - name: Publish to GPR
+#        run: |
+#          mkdir -p $HOME/.gem
+#          touch $HOME/.gem/credentials
+#          chmod 0600 $HOME/.gem/credentials
+#          printf -- "---\n:github: ${GEM_HOST_API_KEY}\n" > $HOME/.gem/credentials
+#          gem build *.gemspec
+#          gem push --KEY github --host https://rubygems.pkg.github.com/${OWNER} *.gem
+#        env:
+#          GEM_HOST_API_KEY: "Bearer ${{secrets.GITHUB_TOKEN}}"
+#          OWNER: ${{ github.repository_owner }}
+
+#      - name: Publish to RubyGems
+#        run: |
+#          mkdir -p $HOME/.gem
+#          touch $HOME/.gem/credentials
+#          chmod 0600 $HOME/.gem/credentials
+#          printf -- "---\n:rubygems_api_key: ${GEM_HOST_API_KEY}\n" > $HOME/.gem/credentials
+#          gem build *.gemspec
+#          gem push *.gem
+#        env:
+#          GEM_HOST_API_KEY: "${{secrets.RUBYGEMS_AUTH_TOKEN}}"
