@@ -8,7 +8,7 @@ Currently supported by two languages: [Ruby](/csmrb) as a [Ruby gem](https://rub
 
 I enjoy developing CLI scripts and tools using various languages. It's essential that these projects maintain consistency in customization, no matter the language.
 
-This is mainly for reusing in my projects, but it's also designed to be user-friendly for others. It's straightforward and simple, because complicating code is impractical and unnecessary.
+This is mainly for reusing in my projects, but it's also designed to be user-friendly for others. It's straightforward and simple, because over complicating code is impractical and unnecessary.
 
 ## LICENSE
 
