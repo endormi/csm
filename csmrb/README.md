@@ -15,13 +15,13 @@ gem 'csm'
 And then execute:
 
 ```bash
-$ bundle install
+bundle install
 ```
 
 Or install it yourself as:
 
 ```bash
-$ gem install csm
+gem install csm
 ```
 
 ## Usage

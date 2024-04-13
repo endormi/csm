@@ -14,13 +14,13 @@ Install the package:
 pip install csmpy
 ```
 
-Add it to your `requirements.txt` file:
+Optionally, you can add it to your `requirements.txt` file:
 
 ```python
 csmpy>=<version>
 ```
 
-Now you can install it by running:
+And now it can be installed by running:
 
 ```python
 pip install -r requirements.txt
