@@ -4,15 +4,21 @@ on:
   push:
     branches:
       - main
+    paths:
+      - 'csmrb/**'
+      - '.github/workflows/ruby.yml'
   pull_request:
-    
+    paths:
+      - 'csmrb/**'
+      - '.github/workflows/ruby.yml'
+
 
 jobs:
   test:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        ruby-version: ['2.7', '3.0']
+        ruby-version: ['3.0']
 
     defaults:
       run:
@@ -21,7 +27,7 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
-  
+
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:

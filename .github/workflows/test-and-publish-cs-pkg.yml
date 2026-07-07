@@ -4,7 +4,13 @@ on:
   push:
     branches:
       - main
+    paths:
+      - 'csmcs/**'
+      - '.github/workflows/csharp.yml'
   pull_request:
+    paths:
+      - 'csmcs/**'
+      - '.github/workflows/csharp.yml'
 
 jobs:
   test:
