@@ -2,7 +2,7 @@
 
 The Color Scheme Manager (csm) for your projects enabling customization and management of color schemes.
 
-Currently supported by two languages: [Ruby](/csmrb) as a [Ruby gem](https://rubygems.org/gems/csm) and [Python](/csmpy) as a [Python package](https://pypi.org/project/csmpy/).
+Currently supported by two languages: [Ruby](/csmrb) as a [Ruby gem](https://rubygems.org/gems/csm), [Python](/csmpy) as a [Python package](https://pypi.org/project/csmpy/) and [C#](/csmcs) as a [NuGet package](https://www.nuget.org/packages/csmcs).
 
 ## Why?
 
